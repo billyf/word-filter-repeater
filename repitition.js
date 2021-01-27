@@ -6,20 +6,32 @@ function findMatches() {
 	}
 	dict_words = dictionary.split('\n');
 	
-	var suffix = document.getElementById("suffix").value;
-	if (!suffix) {
-		alert("Please enter the suffix to search for");
+	var match_text = document.getElementById("match_text").value;
+	if (!match_text) {
+		alert("Please enter the matching text to search for");
 		return;
 	}
+
+	var match_type = document.querySelector('input[name="match_type"]:checked');
+	if (!match_type) {
+		alert("Please enter the type of matching");
+		return;
+	}
+	match_type = match_type.value;
 	
 	var matches = document.getElementById("matches");
 	matches.value = "";
 	
+	var match_count = 0;
 	for (var d in dict_words) {
-		if (dict_words[d].endsWith(suffix)) {
+		if ((match_type == "prefix" && dict_words[d].startsWith(match_text))
+		  || (match_type == "suffix" && dict_words[d].endsWith(match_text))
+		  || (match_type == "contains" && dict_words[d].indexOf(match_text) != -1)) {
 			matches.value += dict_words[d] + '\n';
+			match_count++;
 		}
 	}
+	document.getElementById("match_count").innerHTML = match_count + " matches found";
 }
 
 function createExercise() {

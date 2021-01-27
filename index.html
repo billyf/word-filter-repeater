@@ -13,12 +13,21 @@
 
 <br/>
 
-<label for="suffix">Suffix:</label><br/>
-<input id="suffix" /><br/>
+<p>Find words matching:</p>
+<input type="radio" id="prefix" name="match_type" value="prefix">
+<label for="prefix">Prefix</label><br>
+<input type="radio" id="suffix" name="match_type" value="suffix">
+<label for="suffix">Suffix</label><br>
+<input type="radio" id="contains" name="match_type" value="contains">
+<label for="contains">Contains</label>
+<br/>
+
+<input id="match_text" /><br/>
 
 <br/>
 
 <button onclick="findMatches()">Find matches</button><br/>
+<p id="match_count"></p>
 
 <br/>
 
