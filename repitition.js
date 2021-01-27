@@ -84,10 +84,12 @@ function createExercise() {
 
 function renderPlayer(exercise) {
 	var m = new jscw();
-	m.setWpm(30);
-	m.setEff(30);
+	var wpm = document.getElementById("player_wpm").value.trim()
+	m.setWpm(wpm);
+	m.setEff(wpm);
 	m.setEws(1);
-	m.setFreq(500);
+	var tone = document.getElementById("player_hz").value.trim()
+	m.setFreq(tone);
 	exercise = exercise.replaceAll('\n', ' ');
 	m.setText(exercise);
 	m.renderPlayer('player', m);

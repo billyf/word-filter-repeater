@@ -10,7 +10,7 @@
 <label for="dictionary">Input the dictionary (one word per line):</label>
 <br/>
 <textarea id="dictionary" name="dictionary"
-          rows="10" cols="33">
+          rows="8" cols="33">
 </textarea><br/>
 <button onclick="load3000()">Load top 3000 words</button><br/>
 
@@ -39,7 +39,7 @@
 <label for="matches">Matches:</label>
 <br/>
 <textarea id="matches" name="matches"
-          rows="10" cols="33">
+          rows="8" cols="33">
 </textarea>
 <br/><br/>
 
@@ -51,10 +51,16 @@
 <label for="exercise">Excercise:</label>
 <br/>
 <textarea id="exercise" name="excercise"
-          rows="10" cols="33">
+          rows="8" cols="33">
 </textarea>
 
-<br/><br/>
+<br/>
+<label for="player_wpm">WPM</label>
+<input id="player_wpm" value="30" size="2"/>
+
+<label for="player_hz">Hz</label>
+<input id="player_hz" value="500" size="3"/><br/>
+<br/>
 
 <div id="player"></div>
 Player from <a href="https://lcwo.net/text2cw" target="_blank">LCWO ebook2cw converter</a>
