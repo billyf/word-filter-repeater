@@ -35,14 +35,14 @@ function findMatches() {
 }
 
 function createExercise() {
-	var suffix = document.getElementById("suffix").value;
+	var match_text = document.getElementById("match_text").value;
 	var matches = document.getElementById("matches").value.split("\n");
 	
 	var exercise = document.getElementById("exercise");
 	exercise.value = "vvv vvv vvv\n";
 	for (var m in matches) {
 		for (var i = 0; i < 3; i++) {
-			exercise.value += suffix + "  ";
+			exercise.value += match_text + "  ";
 		}
 		exercise.value += "\n";
 		for (var i = 0; i < 3; i++) {
