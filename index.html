@@ -2,11 +2,12 @@
 <head>
 <script src="repitition.js"></script>
 <script src="dictionaries.js"></script>
+<script src="https://lcwo.net/js/jscwlib.js"></script>
 </head>
 
 <body>
 
-<label for="dictionary">Full dictionary (one word per line):</label>
+<label for="dictionary">Input the dictionary (one word per line):</label>
 <br/>
 <textarea id="dictionary" name="dictionary"
           rows="10" cols="33">
@@ -15,7 +16,9 @@
 
 <br/>
 
-<p>Find words matching:</p>
+<label for="match_text">Find words matching:</label>
+<input id="match_text" size="5"/><br/>
+
 <input type="radio" id="prefix" name="match_type" value="prefix">
 <label for="prefix">Prefix</label><br>
 <input type="radio" id="suffix" name="match_type" value="suffix">
@@ -24,14 +27,14 @@
 <label for="contains">Contains</label>
 <br/>
 
-<input id="match_text" /><br/>
-
 <br/>
 
-<button onclick="findMatches()">Find matches</button><br/>
-<p id="match_count"></p>
+<input type="checkbox" id="randomize" name="randomize" value="randomize">
+<label for="randomize">Randomize match list</label><br/><br/>
 
-<br/>
+<button onclick="findMatches()">Find matches</button> <span id="match_count"></span>
+
+<br/><br/>
 
 <label for="matches">Matches:</label>
 <br/>
@@ -52,7 +55,9 @@
 </textarea>
 
 <br/><br/>
-<a href="https://lcwo.net/text2cw" target="_blank">Online ebook2cw converter</a>
+
+<div id="player"></div>
+Player from <a href="https://lcwo.net/text2cw" target="_blank">LCWO ebook2cw converter</a>
 
 
 </body>

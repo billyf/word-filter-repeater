@@ -4,7 +4,7 @@ function findMatches() {
 		alert("Please enter dictionary values");
 		return;
 	}
-	dict_words = dictionary.split('\n');
+	dict_words = dictionary.trim().split('\n');
 	
 	var match_text = document.getElementById("match_text").value;
 	if (!match_text) {
@@ -22,16 +22,51 @@ function findMatches() {
 	var matches = document.getElementById("matches");
 	matches.value = "";
 	
-	var match_count = 0;
+	var match_list = [];
 	for (var d in dict_words) {
 		if ((match_type == "prefix" && dict_words[d].startsWith(match_text))
 		  || (match_type == "suffix" && dict_words[d].endsWith(match_text))
 		  || (match_type == "contains" && dict_words[d].indexOf(match_text) != -1)) {
-			matches.value += dict_words[d] + '\n';
-			match_count++;
+			match_list.push(dict_words[d]);
+			//matches.value += dict_words[d] + '\n';
 		}
 	}
-	document.getElementById("match_count").innerHTML = match_count + " matches found";
+	if (document.getElementById("randomize").checked) {
+		match_list = shuffle(match_list);
+	}
+	for (var m in match_list) {
+		matches.value += match_list[m] + '\n';
+	}
+	document.getElementById("match_count").innerHTML = match_list.length + " matches found";
+}
+
+// https://stackoverflow.com/a/2450976
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function generateRepeatedLine(text) {
+	var line = "";
+	for (var i = 0; i < 2; i++) {
+		line += text + " ";
+	}
+	line += text + "\n";
+	return line;
 }
 
 function createExercise() {
@@ -41,14 +76,19 @@ function createExercise() {
 	var exercise = document.getElementById("exercise");
 	exercise.value = "vvv vvv vvv\n";
 	for (var m in matches) {
-		for (var i = 0; i < 3; i++) {
-			exercise.value += match_text + "  ";
-		}
-		exercise.value += "\n";
-		for (var i = 0; i < 3; i++) {
-			exercise.value += matches[m] + "  ";
-		}
-		exercise.value += "\n";
+		exercise.value += generateRepeatedLine(match_text);
+		exercise.value += generateRepeatedLine(matches[m]);
 	}
-	
+	renderPlayer(exercise.value);
+}
+
+function renderPlayer(exercise) {
+	var m = new jscw();
+	m.setWpm(30);
+	m.setEff(30);
+	m.setEws(1);
+	m.setFreq(500);
+	exercise = exercise.replaceAll('\n', ' ');
+	m.setText(exercise);
+	m.renderPlayer('player', m);
 }
