@@ -1,21 +1,43 @@
 <html>
+<head>
+<script src="repitition.js"></script>
+</head>
 
-<label for="dictionary">Full dictionary:</label>
+<body>
+
+<label for="dictionary">Full dictionary (one word per line):</label>
 <br/>
 <textarea id="dictionary" name="dictionary"
-          rows="5" cols="33">
+          rows="10" cols="33">
+</textarea><br/>
+
+<br/>
+
+<label for="suffix">Suffix:</label><br/>
+<input id="suffix" /><br/>
+
+<br/>
+
+<button onclick="findMatches()">Find matches</button><br/>
+
+<br/>
+
+<label for="matches">Matches:</label>
+<br/>
+<textarea id="matches" name="matches"
+          rows="10" cols="33">
 </textarea>
+<br/><br/>
+
+
+<button onclick="createExercise()">Create exercise file</button><br/>
 
 <br/>
 
-<button>Create exercise file</button>
-
+<label for="exercise">Excercise:</label>
 <br/>
-
-<label for="excercise">Excercise:</label>
-<br/>
-<textarea id="excercise" name="excercise"
-          rows="5" cols="33">
+<textarea id="exercise" name="excercise"
+          rows="10" cols="33">
 </textarea>
-
+</body>
 </html>

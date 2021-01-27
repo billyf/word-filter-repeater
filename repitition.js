@@ -1,7 +1,7 @@
 function findMatches() {
 	var dictionary = document.getElementById("dictionary").value;
 	if (!dictionary) {
-		alert("Please enter a dictionary");
+		alert("Please enter dictionary values");
 		return;
 	}
 	dict_words = dictionary.split('\n');
