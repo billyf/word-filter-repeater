@@ -73,10 +73,14 @@ function createExercise() {
 	var match_text = document.getElementById("match_text").value;
 	var matches = document.getElementById("matches").value.split("\n");
 	
+	var hypnotic = document.querySelector('input[name="hypnotic"]:checked');
+
 	var exercise = document.getElementById("exercise");
 	exercise.value = "vvv vvv vvv\n";
 	for (var m in matches) {
-		exercise.value += generateRepeatedLine(match_text);
+		if (hypnotic) {
+			exercise.value += generateRepeatedLine(match_text);
+		}
 		exercise.value += generateRepeatedLine(matches[m]);
 	}
 	renderPlayer(exercise.value);
