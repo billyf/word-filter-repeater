@@ -24,9 +24,9 @@ function findMatches() {
 	
 	var match_list = [];
 	for (var d in dict_words) {
-		if ((match_type == "prefix" && dict_words[d].startsWith(match_text))
-		  || (match_type == "suffix" && dict_words[d].endsWith(match_text))
-		  || (match_type == "contains" && dict_words[d].indexOf(match_text) != -1)) {
+		if ((match_type == "prefix" && dict_words[d].toLowerCase().startsWith(match_text.toLowerCase()))
+		  || (match_type == "suffix" && dict_words[d].toLowerCase().endsWith(match_text.toLowerCase()))
+		  || (match_type == "contains" && dict_words[d].toLowerCase().indexOf(match_text.toLowerCase()) != -1)) {
 			match_list.push(dict_words[d]);
 			//matches.value += dict_words[d] + '\n';
 		}
