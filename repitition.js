@@ -94,9 +94,10 @@ function renderPlayer(exercise) {
 	var wpm = document.getElementById("player_wpm").value.trim()
 	m.setWpm(wpm);
 	m.setEff(wpm);
-	m.setEws(1);
 	var tone = document.getElementById("player_hz").value.trim()
 	m.setFreq(tone);
+	var extra_word_spacing = document.getElementById("extra_word_spacing").value.trim()
+	m.setEws(extra_word_spacing);
 	exercise = exercise.replaceAll('\n', ' ');
 	m.setText(exercise);
 	m.renderPlayer('player', m);
