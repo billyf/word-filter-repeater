@@ -78,10 +78,13 @@ function createExercise() {
 	var exercise = document.getElementById("exercise");
 	exercise.value = "vvv vvv vvv\n";
 	for (var m in matches) {
+		if (matches[m].trim().length == 0) {
+			continue;
+		}
 		if (hypnotic) {
 			exercise.value += generateRepeatedLine(match_text);
 		}
-		exercise.value += generateRepeatedLine(matches[m]);
+		exercise.value += generateRepeatedLine(matches[m].trim());
 	}
 	renderPlayer(exercise.value);
 }
