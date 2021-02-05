@@ -7,12 +7,16 @@
 
 <body>
 
-<label for="dictionary">Input the dictionary (one word per line):</label>
+<label for="dictionary">Input your dictionary (one word per line):</label>
 <br/>
 <textarea id="dictionary" name="dictionary"
           rows="8" cols="33">
 </textarea><br/>
-<button onclick="load3000()">Load top 3000 words</button><br/>
+Or load the top
+<button onclick="load100()">100</button>
+<button onclick="load500()">500</button>
+<button onclick="load3000()">3000</button>
+words<br/>
 
 <br/>
 
@@ -44,10 +48,10 @@
 <br/><br/>
 
 <input type="checkbox" id="hypnotic" name="hypnotic" value="hypnotic">
-<label for="hypnotic">Repeat matching part between words</label><br/><br/>
+<label for="hypnotic">Repeat the matching part between lines</label><br/><br/>
 
 
-<button onclick="createExercise()">Create exercise file</button><br/>
+<button onclick="createExercise()">Create exercise text and audio</button><br/>
 
 <br/>
 

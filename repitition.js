@@ -14,7 +14,7 @@ function findMatches() {
 
 	var match_type = document.querySelector('input[name="match_type"]:checked');
 	if (!match_type) {
-		alert("Please enter the type of matching");
+		alert("Please select which type of match to perform");
 		return;
 	}
 	match_type = match_type.value;
